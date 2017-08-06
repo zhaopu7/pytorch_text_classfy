@@ -93,6 +93,14 @@ def train():
             print "iter: %d, acc: %.4f, time cost this iter: %.4f" % (iter, right_count / batch_size,
                                                                      time.time() - st)
 
+            """save"""
+            """
+            torch.save(net, 'net.pkl')  # save entire net
+            net = torch.load('net.pkl') # load
+            
+            torch.save(net.state_dict(), 'net_params.pkl')  # save only the parameters
+            net.load_state_dict(torch.load('net_params.pkl')) # load
+            """
 
 if __name__ == '__main__':
     train()
